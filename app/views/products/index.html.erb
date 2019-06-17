@@ -8,10 +8,10 @@
 
   <% @products.each do |product| %>
     <div class="row mb-3">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%= image_tag(product.image_url, class: 'img-fluid rounded mb-3 mb-md-0 product-img') %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-9">
         <h3><%= product.title %></h3>
         <p><%= truncate(strip_tags(product.description), length: 500) %></p>
         <%= link_to 'Show', product, class: "btn btn-primary" %>
