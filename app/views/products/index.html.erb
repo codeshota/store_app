@@ -1,33 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Products</h1>
+  <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1 class=" d-inline-block">Products</h1>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.title %></td>
-        <td><%= truncate(strip_tags(product.description), length: 80) %></td>
-        <td><%= image_tag(product.image_url, class: 'product-img') %></td>
-        <td><%= product.price %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= link_to 'New Product', new_product_path, class: "btn btn-primary mb-3" %>
 
-<br>
+  <% @products.each do |product| %>
+    <div class="row mb-3">
+      <div class="col-md-4">
+        <%= image_tag(product.image_url, class: 'img-fluid rounded mb-3 mb-md-0 product-img') %>
+      </div>
+      <div class="col-md-8">
+        <h3><%= product.title %></h3>
+        <p><%= truncate(strip_tags(product.description), length: 500) %></p>
+        <%= link_to 'Show', product, class: "btn btn-primary" %>
+        <%= link_to 'Edit', edit_product_path(product), class: "btn btn-primary" %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
 
-<%= link_to 'New Product', new_product_path %>
+
+</div>
