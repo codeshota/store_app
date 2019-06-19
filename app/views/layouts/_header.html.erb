@@ -18,6 +18,9 @@
             <%= link_to "Carts", carts_path, class: "nav-link" %>
           </li>
         </ul>
+        <button type="button" class="btn btn-primary">
+          Cart <span class="badge badge-light"><%= @cart.line_items.size %></span>
+        </button>
       </div>
     </div>
   </nav>
